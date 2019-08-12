@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 // Get our API routes
 const api = require('./server/routes/api');
@@ -34,6 +35,9 @@ app.set('port', port);
  * Create HTTP server.
  */
 const server = http.createServer(app);
+
+// Connect to database
+mongoose.connect('mongodb://root:KfFVlQ3QxdSq@db.nebulaic.com:27017/admin');
 
 /**
  * Listen on provided port, on all network interfaces.

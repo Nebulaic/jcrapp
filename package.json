@@ -22,6 +22,7 @@
     "aws-serverless-express": "^3.3.6",
     "bulma": "^0.7.5",
     "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

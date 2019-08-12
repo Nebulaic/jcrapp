@@ -1,3 +1,5 @@
+require ('dotenv').config(); // Load environment variables
+
 // Get dependencies
 const express = require('express');
 const path = require('path');
@@ -37,7 +39,7 @@ app.set('port', port);
 const server = http.createServer(app);
 
 // Connect to database
-mongoose.connect('mongodb://root:KfFVlQ3QxdSq@db.nebulaic.com:27017/admin');
+mongoose.connect(process.env.DB_URI);
 
 /**
  * Listen on provided port, on all network interfaces.

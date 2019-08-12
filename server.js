@@ -25,16 +25,16 @@ app.get('*', (req, res) => {
 });
 
 
- // Get port from environment and store in Express.
+ // Get port from environment and store in Express
 const port = process.env.PORT || '3000';
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
+
+// Create HTTP server
 const server = http.createServer(app);
 
 // Connect to database
 mongoose.connect(process.env.DB_URI);
 
+// Broadcast & run
 server.listen(port, () => console.log(`API running on localhost:${port}`));

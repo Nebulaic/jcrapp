@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './services/login/login.component';
-import { JcrComponent } from './services/jcr/jcr.component';
-import { NewsComponent } from './services/news/news.component';
-import { TimetableComponent } from './services/timetable/timetable.component';
+import { LoginComponent } from './pages/login/login.component';
+import { JcrComponent } from './pages/jcr/jcr.component';
+import { NewsComponent } from './pages/news/news.component';
+import { TimetableComponent } from './pages/timetable/timetable.component';
 
 
 const routes: Routes = [

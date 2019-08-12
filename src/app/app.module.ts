@@ -7,7 +7,7 @@ import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
 
 import { CoreModule } from '@app/core/core.module';
-import { ServicesModule } from '@app/services/services.module';
+import { PagesModule } from '@app/pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { ServicesModule } from '@app/services/services.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    ServicesModule,
+    PagesModule,
     FormsModule,
     HttpClientModule
   ],

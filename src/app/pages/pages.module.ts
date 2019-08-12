@@ -13,4 +13,4 @@ import { LoginComponent } from './login/login.component';
     CommonModule
   ]
 })
-export class ServicesModule { }
+export class PagesModule { }

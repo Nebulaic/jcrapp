@@ -28,9 +28,15 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/bulma/css/bulma.css",
+              "node_modules/bulma/bulma.sass",
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules",
+                "node_modules/bulma/sass/utilities"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

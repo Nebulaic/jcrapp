@@ -8,7 +8,7 @@ import { TimetableComponent } from './pages/timetable/timetable.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     component: LoginComponent
   },
   {
@@ -22,6 +22,11 @@ const routes: Routes = [
   {
     path: 'timetable',
     component: TimetableComponent
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
   }
 ];
 

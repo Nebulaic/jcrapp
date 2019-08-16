@@ -14,6 +14,9 @@ const app = express();
 const api = require('./server/routes');
 app.use('/api', api);
 
+// Connect to database
+mongoose.connect(process.env.DB_URI);
+
 // Point static path to dist
 app.use(express.static(path.join(__dirname, '/dist/jcrapp')));
 
@@ -28,9 +31,6 @@ app.set('port', port);
 
 // Create HTTP server
 const server = http.createServer(app);
-
-// Connect to database
-mongoose.connect(process.env.DB_URI);
 
 // Broadcast & run
 server.listen(port, () => console.log(`API running on localhost:${port}`));

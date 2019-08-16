@@ -1,36 +1,29 @@
- // Load environment variables
- require ('dotenv').config();
+// Load environment variables
+require ('dotenv').config();
 
-// Get dependencies
+// Dependencies
 const express = require('express');
 const path = require('path');
 const http = require('http');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
-// Initialise app
+// Initialisation
 const app = express();
+const port = process.env.PORT || 3000; // set port
 
-// API routes
-const api = require('./server/routes');
-app.use('/api', api);
+// app.use() clauses
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, 'dist/jcrapp')));
+/* Place app.use clauses here e.g. 
+app.use('/', express.static(path.join(__dirname, 'dist/index.html'))) */
 
-// Connect to database
-mongoose.connect(process.env.DB_URI);
-
-// Point static path to dist
-app.use(express.static(path.join(__dirname, '/dist/jcrapp')));
-
-// Catch all other routes and return the index file
+// Direct browser to static site
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/jcrapp/index.html'));
+    res.sendFile(path.join(__dirname, 'dist/jcrapp/index.html'));
 });
 
- // Get port from environment and store in Express
-const port = process.env.PORT || '3000';
-app.set('port', port);
-
-// Create HTTP server
-const server = http.createServer(app);
-
-// Broadcast & run
-server.listen(port, () => console.log(`API running on localhost:${port}`));
+// Create server
+app.listen(port, function() {
+    console.log(`Listening on ${port}.`);
+});

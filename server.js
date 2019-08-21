@@ -36,7 +36,9 @@ app.get('*', (req, res) => {
 mongoose.connect(db_uri, {useNewURLParser: true});
 
 // API Routes
-//require('./server/routes')(app); // configure routes
+//require('./api/routes')(app); // configure routes
+var routes = require('./api/routes');
+app.use('/api', routes);
 
 // Create server
 app.listen(port, function() {

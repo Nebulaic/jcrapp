@@ -1,14 +1,16 @@
-var User = require('./models/user'); // import User class
+var express = require('express');
+var router = express.Router();
+var User = require('../server/models/user');
 
-module.exports = function(app) {
-    // server routes, handle api calls etc.
-    // authentification routes
+router.route('/users')
+    .post((req, res) => {
+        var user = new User();
+        user.name = req.body.name;
+        user.save((err) => {
+            if (err)
+                res.send(err);
+            res.json({message: 'User created!'});
+        });
+    });
 
-    // app.get('/api/users', (req, res) => {
-    //     User.find((err, nerds) => {
-    //         if (err)
-    //             res.send(err);
-    //         res.json(users);
-    //     });
-    // });
-};
+module.exports = router;
